@@ -58,6 +58,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>COZ_PLATFORM_WINDOWS;COZ_BUILD_DLL</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Cozmos\vendor\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -72,6 +73,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>COZ_PLATFORM_WINDOWS;COZ_BUILD_DLL</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Cozmos\vendor\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -81,9 +83,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Cozmos\Log.cpp" />
     <ClCompile Include="Source\Cozmos\Application.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Cozmos\Log.h" />
     <ClInclude Include="Source\Cozmos.h" />
     <ClInclude Include="Source\Cozmos\Application.h" />
     <ClInclude Include="Source\Cozmos\Core.h" />

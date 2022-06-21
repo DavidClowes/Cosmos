@@ -1,0 +1,3 @@
+[submodule "Cozmos/vendor/spdlog"]
+	path = Cozmos/vendor/spdlog
+	url = https://github.com/gabime/spdlog

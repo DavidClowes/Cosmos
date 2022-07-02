@@ -4,6 +4,8 @@
 #include "Events/Event.h"
 #include "Window.h"
 
+#include "Cozmos/Events/ApplicationEvent.h"
+
 namespace Cozmos
 
 {
@@ -15,7 +17,11 @@ namespace Cozmos
 
 		void Run();
 
+		void OnEvent(Event& e);
+
 	private:
+		bool OnWindowClose(WindowCloseEvent& e);
+
 		std::unique_ptr<Window> m_Window;
 
 		bool m_IsRunning = true;

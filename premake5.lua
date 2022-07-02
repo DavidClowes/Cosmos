@@ -11,6 +11,12 @@ workspace "Cozmos"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution dir)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Cozmos/vendor/GLFW/include"
+
+include "Cozmos/vendor/GLFW"
+
 project "Cozmos"
 	location "Cozmos"
 	kind "SharedLib"
@@ -31,7 +37,14 @@ project "Cozmos"
 	includedirs
 	{
 		"%{prj.name}/Source",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

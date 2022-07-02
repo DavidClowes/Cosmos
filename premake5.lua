@@ -19,6 +19,9 @@ project "Cozmos"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "cozpch.h"
+	pchsource "Cozmos/Source/cozpch.cpp"
+
 	files
 	{
 		"%{prj.name}/Source/**.h",
@@ -27,7 +30,7 @@ project "Cozmos"
 
 	includedirs
 	{
-		"%{prj.name}/Source"
+		"%{prj.name}/Source",
 		"%{prj.name}/vendor/spdlog/include"
 	}
 

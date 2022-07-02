@@ -4,6 +4,9 @@
     <Filter Include="Cozmos">
       <UniqueIdentifier>{800B46AC-6CAD-7082-5568-84D641A9F7D2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Cozmos\Events">
+      <UniqueIdentifier>{64C70B22-D087-8758-99C2-D0D50542CC34}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Cozmos.h" />
@@ -16,13 +19,22 @@
     <ClInclude Include="Source\Cozmos\EntryPoint.h">
       <Filter>Cozmos</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Cozmos\Events\ApplicationEvent.h">
+      <Filter>Cozmos\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Cozmos\Events\Event.h">
+      <Filter>Cozmos\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Cozmos\Events\KeyEvent.h">
+      <Filter>Cozmos\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Cozmos\Events\MouseEvent.h">
+      <Filter>Cozmos\Events</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Cozmos\Log.h">
       <Filter>Cozmos</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Cozmos\Events\Event.h" />
-    <ClInclude Include="Source\Cozmos\Events\ApplicationEvent.h" />
-    <ClInclude Include="Source\Cozmos\Events\KeyEvent.h" />
-    <ClInclude Include="Source\Cozmos\Events\MouseEvent.h" />
+    <ClInclude Include="Source\cozpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Cozmos\Application.cpp">
@@ -31,5 +43,6 @@
     <ClCompile Include="Source\Cozmos\Log.cpp">
       <Filter>Cozmos</Filter>
     </ClCompile>
+    <ClCompile Include="Source\cozpch.cpp" />
   </ItemGroup>
 </Project>

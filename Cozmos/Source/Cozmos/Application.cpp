@@ -1,3 +1,4 @@
+#include "cozpch.h"
 #include "Application.h"
 
 #include "Cozmos/Events/ApplicationEvent.h"

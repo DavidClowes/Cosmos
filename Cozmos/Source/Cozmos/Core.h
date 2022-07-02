@@ -10,3 +10,5 @@
 #else
 	#error Cozmos only runs on windows at the moment!
 #endif
+
+#define BIT(x) (1 << x)

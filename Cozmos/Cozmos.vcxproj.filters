@@ -37,6 +37,12 @@
     <ClInclude Include="Source\Cozmos\Events\MouseEvent.h">
       <Filter>Cozmos\Events</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Cozmos\Layer.h">
+      <Filter>Cozmos</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Cozmos\LayerStack.h">
+      <Filter>Cozmos</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Cozmos\Log.h">
       <Filter>Cozmos</Filter>
     </ClInclude>
@@ -50,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Cozmos\Application.cpp">
+      <Filter>Cozmos</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cozmos\Layer.cpp">
+      <Filter>Cozmos</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Cozmos\LayerStack.cpp">
       <Filter>Cozmos</Filter>
     </ClCompile>
     <ClCompile Include="Source\Cozmos\Log.cpp">

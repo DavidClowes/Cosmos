@@ -11,6 +11,10 @@
 	#error Cozmos only runs on windows at the moment!
 #endif
 
+#ifdef COZ_DEBUG
+	#define COZ_ENABLE_ASSERTS
+#endif
+
 #ifdef COZ_ENABLE_ASSERTS
 	#define COZ_ASSERT(x, ...) { if(!(x)) { COZ_ERROR("Assertation Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 	#define COZ_CORE_ASSERT(x, ...) { if (!(x)) {COZ_CORE_ERROR("Assertation Failed: {0}", __VA_ARGS__); __debugbreak(); } }

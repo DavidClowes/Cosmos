@@ -152,7 +152,7 @@ namespace Cozmos
 
 	void WindowsWindow::OnUpdate()
 	{
-
+		glfwSwapBuffers(m_Window);
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)

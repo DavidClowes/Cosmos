@@ -4,3 +4,7 @@
 [submodule "Cozmos/vendor/GLFW"]
 	path = Cozmos/vendor/GLFW
 	url = https://github.com/glfw/glfw
+[submodule "Cozmos/vendor/imgui"]
+	path = Cozmos/vendor/imgui
+	url = https://github.com/ocornut/imgui
+	branch = docking

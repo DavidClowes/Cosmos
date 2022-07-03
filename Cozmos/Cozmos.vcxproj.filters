@@ -70,6 +70,8 @@
     <ClInclude Include="Source\cozpch.h" />
     <ClInclude Include="Source\Cozmos\Input.h" />
     <ClInclude Include="Source\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="Source\Cozmos\KeyCodes.h" />
+    <ClInclude Include="Source\Cozmos\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Cozmos\Application.cpp">

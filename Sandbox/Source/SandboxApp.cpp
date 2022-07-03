@@ -11,12 +11,15 @@ public:
 
 	void OnUpdate() override
 	{
-		COZ_INFO("ExampleLayer::Update");
+		if (Cozmos::Input::IsKeyPressed(COZ_KEY_TAB))
+		{
+			COZ_TRACE("Tab key is pressed!");
+		}
 	}
 
 	void OnEvent(Cozmos::Event& event) override
 	{
-		COZ_TRACE("{0}", event);
+		// COZ_TRACE("{0}", event);
 	}
 };
 

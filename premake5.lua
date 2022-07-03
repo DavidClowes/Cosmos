@@ -14,8 +14,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution dir)
 IncludeDir = {}
 IncludeDir["GLFW"] = "Cozmos/vendor/GLFW/include"
+IncludeDir["Glad"] = "Cozmos/vendor/Glad/include"
 
 include "Cozmos/vendor/GLFW"
+include "Cozmos/vendor/Glad"
 
 project "Cozmos"
 	location "Cozmos"
@@ -38,12 +40,14 @@ project "Cozmos"
 	{
 		"%{prj.name}/Source",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -55,7 +59,8 @@ project "Cozmos"
 		defines
 		{
 			"COZ_PLATFORM_WINDOWS",
-			"COZ_BUILD_DLL"
+			"COZ_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands

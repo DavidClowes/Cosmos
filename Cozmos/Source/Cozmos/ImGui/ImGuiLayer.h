@@ -8,7 +8,7 @@
 
 namespace Cozmos
 {
-	class COZMOS_API ImGuiLayer : public Layer
+	class ImGuiLayer : public Layer
 	{
 	public:
 		ImGuiLayer();

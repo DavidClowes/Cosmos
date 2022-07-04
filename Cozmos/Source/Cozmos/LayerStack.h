@@ -7,7 +7,7 @@
 
 namespace Cozmos
 {
-	class COZMOS_API LayerStack
+	class LayerStack
 	{
 	public:
 		LayerStack();

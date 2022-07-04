@@ -12,7 +12,7 @@
 namespace Cozmos
 
 {
-	class COZMOS_API Application
+	class Application
 	{
 	public:
 		Application();

@@ -6,7 +6,7 @@
 
 namespace Cozmos
 {
-	class COZMOS_API MouseMovedEvent : public Event
+	class MouseMovedEvent : public Event
 	{
 	public:
 		MouseMovedEvent(float x, float y)
@@ -29,7 +29,7 @@ namespace Cozmos
 		float m_MouseX, m_MouseY;
 	};
 
-	class COZMOS_API MouseScrolledEvent : public Event
+	class MouseScrolledEvent : public Event
 	{
 	public:
 		MouseScrolledEvent(float xOffset, float yOffset)
@@ -52,7 +52,7 @@ namespace Cozmos
 		float m_XOffset, m_YOffset;
 	};
 
-	class COZMOS_API MouseButtonEvent : public Event
+	class MouseButtonEvent : public Event
 	{
 	public:
 		inline int GetMouseButton() const { return m_Button; }
@@ -66,7 +66,7 @@ namespace Cozmos
 		int m_Button;
 	};
 
-	class COZMOS_API MouseButtonPressedEvent : public MouseButtonEvent
+	class MouseButtonPressedEvent : public MouseButtonEvent
 	{
 	public:
 		MouseButtonPressedEvent(int button)
@@ -82,7 +82,7 @@ namespace Cozmos
 		EVENT_CLASS_TYPE(MouseButtonPressed)
 	};
 
-	class COZMOS_API MouseButtonReleasedEvent : public MouseButtonEvent
+	class MouseButtonReleasedEvent : public MouseButtonEvent
 	{
 	public:
 		MouseButtonReleasedEvent(int button)

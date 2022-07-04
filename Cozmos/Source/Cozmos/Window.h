@@ -7,7 +7,7 @@
 
 namespace Cozmos
 {
-	struct COZMOS_API WindowProps
+	struct WindowProps
 	{
 		std::string Title;
 		unsigned int Width;
@@ -22,7 +22,7 @@ namespace Cozmos
 		}
 	};
 
-	class COZMOS_API Window
+	class Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;

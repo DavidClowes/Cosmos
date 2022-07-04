@@ -33,7 +33,7 @@ namespace Cozmos
 
 #define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
-	class COZMOS_API Event
+	class Event
 	{
 		friend class EventDispatcher;
 

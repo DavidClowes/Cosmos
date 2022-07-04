@@ -1,12 +1,14 @@
 #pragma once
 
 #ifdef COZ_PLATFORM_WINDOWS
-
+#if COZ_DYNAMIC_LINK
 	#ifdef COZ_BUILD_DLL
-		#define COZMOS_API __declspec(dllexport)
+		#define  __declspec(dllexport)
 	#else
-		#define COZMOS_API __declspec(dllimport)
+		#define  __declspec(dllimport)
 	#endif
+#else
+#endif
 #else
 	#error Cozmos only runs on windows at the moment!
 #endif

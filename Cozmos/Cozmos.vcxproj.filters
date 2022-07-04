@@ -46,6 +46,12 @@
     <ClInclude Include="Source\Cozmos\ImGui\ImGuiLayer.h">
       <Filter>Cozmos\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Cozmos\Input.h">
+      <Filter>Cozmos</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Cozmos\KeyCodes.h">
+      <Filter>Cozmos</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Cozmos\Layer.h">
       <Filter>Cozmos</Filter>
     </ClInclude>
@@ -53,6 +59,9 @@
       <Filter>Cozmos</Filter>
     </ClInclude>
     <ClInclude Include="Source\Cozmos\Log.h">
+      <Filter>Cozmos</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Cozmos\MouseButtonCodes.h">
       <Filter>Cozmos</Filter>
     </ClInclude>
     <ClInclude Include="Source\Cozmos\Window.h">
@@ -64,14 +73,13 @@
     <ClInclude Include="Source\Platform\OpenGL\imgui_impl_opengl3_loader.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Platform\Windows\WindowsInput.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="Source\cozpch.h" />
-    <ClInclude Include="Source\Cozmos\Input.h" />
-    <ClInclude Include="Source\Platform\Windows\WindowsInput.h" />
-    <ClInclude Include="Source\Cozmos\KeyCodes.h" />
-    <ClInclude Include="Source\Cozmos\MouseButtonCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Cozmos\Application.cpp">
@@ -92,10 +100,12 @@
     <ClCompile Include="Source\Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
       <Filter>Platform\OpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Platform\Windows\WindowsInput.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Source\cozpch.cpp" />
-    <ClCompile Include="Source\Platform\Windows\WindowsInput.cpp" />
   </ItemGroup>
 </Project>

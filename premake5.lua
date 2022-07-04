@@ -16,6 +16,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Cozmos/vendor/GLFW/include"
 IncludeDir["Glad"] = "Cozmos/vendor/Glad/include"
 IncludeDir["ImGui"] = "Cozmos/vendor/imgui"
+IncludeDir["glm"] = "Cozmos/vendor/glm"
 
 group "Dependencies"
 	include "Cozmos/vendor/GLFW"
@@ -47,7 +48,8 @@ project "Cozmos"
 		"%{prj.name}/vendor/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
 	}
 
 	links
@@ -107,7 +109,8 @@ project "Sandbox"
 	includedirs
 	{
 		"Cozmos/vendor/spdlog/include",
-		"Cozmos/Source"
+		"Cozmos/Source",
+		"%{IncludeDir.glm}"
 	}
 
 	links

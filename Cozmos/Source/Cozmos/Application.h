@@ -7,6 +7,7 @@
 #include "Events/Event.h"
 #include "Cozmos/Events/ApplicationEvent.h"
 
+#include "Cozmos/ImGui/ImGuiLayer.h"
 
 namespace Cozmos
 
@@ -31,6 +32,7 @@ namespace Cozmos
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 
 		bool m_IsRunning = true;
 

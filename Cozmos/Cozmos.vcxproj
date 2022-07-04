@@ -165,19 +165,17 @@
     <ClInclude Include="Source\Cozmos\Log.h" />
     <ClInclude Include="Source\Cozmos\MouseButtonCodes.h" />
     <ClInclude Include="Source\Cozmos\Window.h" />
-    <ClInclude Include="Source\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
-    <ClInclude Include="Source\Platform\OpenGL\imgui_impl_opengl3_loader.h" />
     <ClInclude Include="Source\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="Source\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="Source\cozpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Cozmos\Application.cpp" />
+    <ClCompile Include="Source\Cozmos\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="Source\Cozmos\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="Source\Cozmos\Layer.cpp" />
     <ClCompile Include="Source\Cozmos\LayerStack.cpp" />
     <ClCompile Include="Source\Cozmos\Log.cpp" />
-    <ClCompile Include="Source\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="Source\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="Source\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="Source\cozpch.cpp">

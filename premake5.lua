@@ -110,6 +110,7 @@ project "Sandbox"
 	{
 		"Cozmos/vendor/spdlog/include",
 		"Cozmos/Source",
+		"Cozmos/vendor",
 		"%{IncludeDir.glm}"
 	}
 

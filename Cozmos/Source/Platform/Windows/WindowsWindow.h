@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Cozmos/Window.h"
+#include "Cozmos/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
@@ -30,6 +31,7 @@ namespace Cozmos
 
 	private:
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{

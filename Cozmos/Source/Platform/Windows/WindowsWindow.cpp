@@ -5,7 +5,7 @@
 #include "Cozmos/Events/KeyEvent.h"
 #include "Cozmos/Events/MouseEvent.h"
 
-#include <glad/glad.h>
+#include "Platform/OpenGL/OpenGLContext.h"
 
 namespace Cozmos
 {
@@ -39,6 +39,7 @@ namespace Cozmos
 
 		COZ_CORE_INFO("Creating window {0} (({1}, {2})", m_Data.Title, m_Data.Width, m_Data.Height);
 
+
 		if (!s_GLFWInitialized)
 		{
 			// TODO: glfwTerminate on system shutdown
@@ -51,12 +52,13 @@ namespace Cozmos
 			s_GLFWInitialized = true;
 		}
 
-
 		m_Window = glfwCreateWindow((int)m_Data.Width, (int)m_Data.Height, m_Data.Title.c_str(), NULL, NULL);
 
-		glfwMakeContextCurrent(m_Window);
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		COZ_CORE_ASSERT(status, "Failed to initialize Glad!");
+		m_Context = new OpenGLContext(m_Window);
+		m_Context->Init();
+
+		//^
+
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
@@ -158,7 +160,8 @@ namespace Cozmos
 
 	void WindowsWindow::OnUpdate()
 	{
-		glfwSwapBuffers(m_Window);
+		glfwPollEvents();
+		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled)

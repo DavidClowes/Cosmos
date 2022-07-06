@@ -9,6 +9,8 @@
 
 #include "Cozmos/ImGui/ImGuiLayer.h"
 
+#include "Cozmos/Renderer/Shader.h"
+
 namespace Cozmos
 
 {
@@ -39,6 +41,8 @@ namespace Cozmos
 		LayerStack m_LayerStack;
 
 		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+
+		std::unique_ptr<Shader> m_Shader;
 
 	private:
 		static Application* s_Instance;

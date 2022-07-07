@@ -7,8 +7,8 @@ namespace Cozmos
 	public:
 		virtual ~VertexBuffer() {}
 
-		virtual void Bind() = 0;
-		virtual void Unbind() = 0;
+		virtual void Bind() const = 0;
+		virtual void Unbind() const = 0;
 
 		static VertexBuffer* Create(float* vertices, uint32_t size);
 	};
@@ -18,8 +18,8 @@ namespace Cozmos
 	public:
 		virtual ~IndexBuffer() {}
 
-		virtual void Bind() = 0;
-		virtual void Unbind() = 0;
+		virtual void Bind() const = 0;
+		virtual void Unbind() const = 0;
 
 		virtual uint32_t GetCount() const = 0;
 

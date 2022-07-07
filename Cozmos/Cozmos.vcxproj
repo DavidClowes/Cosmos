@@ -140,6 +140,9 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Cozmos\Renderer\Renderer.h" />
+    <ClInclude Include="Source\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="Source\Cozmos\Renderer\Buffer.h" />
     <ClInclude Include="Source\Cozmos\Renderer\Shader.h" />
     <ClInclude Include="Source\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="Source\Cozmos.h" />
@@ -164,6 +167,9 @@
     <ClInclude Include="Source\cozpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Cozmos\Renderer\Renderer.cpp" />
+    <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="Source\Cozmos\Renderer\Buffer.cpp" />
     <ClCompile Include="Source\Cozmos\Renderer\Shader.cpp" />
     <ClCompile Include="Source\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="Source\Cozmos\Application.cpp" />

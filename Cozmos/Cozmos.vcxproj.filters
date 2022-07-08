@@ -77,6 +77,8 @@
     <ClInclude Include="Source\Cozmos\Renderer\Buffer.h" />
     <ClInclude Include="Source\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="Source\Cozmos\Renderer\Renderer.h" />
+    <ClInclude Include="Source\Cozmos\Renderer\VertexArray.h" />
+    <ClInclude Include="Source\Platform\OpenGL\OpenGLVertexArray.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Cozmos\Application.cpp">
@@ -109,5 +111,7 @@
     <ClCompile Include="Source\Cozmos\Renderer\Buffer.cpp" />
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="Source\Cozmos\Renderer\Renderer.cpp" />
+    <ClCompile Include="Source\Cozmos\Renderer\VertexArray.cpp" />
+    <ClCompile Include="Source\Platform\OpenGL\OpenGLVertexArray.cpp" />
   </ItemGroup>
 </Project>

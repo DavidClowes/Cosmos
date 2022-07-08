@@ -140,7 +140,9 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="Source\Cozmos\Renderer\Renderer.h" />
+    <ClInclude Include="Source\Cozmos\Renderer\VertexArray.h" />
     <ClInclude Include="Source\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="Source\Cozmos\Renderer\Buffer.h" />
     <ClInclude Include="Source\Cozmos\Renderer\Shader.h" />
@@ -167,7 +169,9 @@
     <ClInclude Include="Source\cozpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="Source\Cozmos\Renderer\Renderer.cpp" />
+    <ClCompile Include="Source\Cozmos\Renderer\VertexArray.cpp" />
     <ClCompile Include="Source\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="Source\Cozmos\Renderer\Buffer.cpp" />
     <ClCompile Include="Source\Cozmos\Renderer\Shader.cpp" />

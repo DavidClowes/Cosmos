@@ -10,12 +10,12 @@ namespace Cozmos
 	{
 		switch (Renderer::GetAPI())
 		{
-		case RendererAPI::None:
-			COZ_CORE_ASSERT(false, "RendererAPI::None is not supported!");
-			return nullptr;
+			case RendererAPI::None:
+				COZ_CORE_ASSERT(false, "RendererAPI::None is not supported!");
+				return nullptr;
 
-		case RendererAPI::OpenGL:
-			return new OpenGLVertexBuffer(vertices, size);
+			case RendererAPI::OpenGL:
+				return new OpenGLVertexBuffer(vertices, size);
 		}
 
 		COZ_CORE_ASSERT(false, "Unknown RendererAPI!")
@@ -26,12 +26,12 @@ namespace Cozmos
 	{
 		switch (Renderer::GetAPI())
 		{
-		case RendererAPI::None:
-			COZ_CORE_ASSERT(false, "RendererAPI::None is not supported!");
-			return nullptr;
+			case RendererAPI::None:
+				COZ_CORE_ASSERT(false, "RendererAPI::None is not supported!");
+				return nullptr;
 
-		case RendererAPI::OpenGL:
-			return new OpenGLIndexBuffer(indices, size);
+			case RendererAPI::OpenGL:
+				return new OpenGLIndexBuffer(indices, size);
 		}
 
 		COZ_CORE_ASSERT(false, "Unknown RendererAPI!")

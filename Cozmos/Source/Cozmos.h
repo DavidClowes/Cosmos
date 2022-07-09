@@ -7,6 +7,8 @@
 #include "Cozmos/Layer.h"
 #include "Cozmos/Log.h"
 
+#include "Cozmos/Core/Timestep.h"
+
 #include "Cozmos/Input.h"
 #include "Cozmos/KeyCodes.h"
 #include "Cozmos/MouseButtonCodes.h"

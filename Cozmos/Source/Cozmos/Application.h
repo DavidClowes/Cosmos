@@ -7,13 +7,9 @@
 #include "Events/Event.h"
 #include "Cozmos/Events/ApplicationEvent.h"
 
+#include "Cozmos/Core/Timestep.h"
+
 #include "Cozmos/ImGui/ImGuiLayer.h"
-
-#include "Cozmos/Renderer/Shader.h"
-#include "Cozmos/Renderer/Buffer.h"
-#include "Cozmos/Renderer/VertexArray.h"
-
-#include "Cozmos/Renderer/Camera.h"
 
 namespace Cozmos
 
@@ -37,12 +33,14 @@ namespace Cozmos
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
+	private:
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 
 		bool m_IsRunning = true;
 
 		LayerStack m_LayerStack;
+		float m_LastFrameTime = 0.0f;
 
 	private:
 		static Application* s_Instance;

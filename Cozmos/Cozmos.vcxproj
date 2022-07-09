@@ -171,6 +171,7 @@
     <ClInclude Include="Source\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="Source\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="Source\cozpch.h" />
+    <ClInclude Include="Source\Cozmos\Core\Timestep.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Cozmos\Renderer\Camera.cpp" />
@@ -195,6 +196,7 @@
     <ClCompile Include="Source\cozpch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Source\Cozmos\Core\Timestep.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

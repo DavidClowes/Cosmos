@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Cozmos/Core.h"
+#include "Cozmos/Core/Timestep.h"
 #include "Cozmos/Events/Event.h"
 
 namespace Cozmos
@@ -13,7 +14,7 @@ namespace Cozmos
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep timestep) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 

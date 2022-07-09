@@ -7,6 +7,8 @@
 
 #include "Input.h"
 
+#include <GLFW/glfw3.h>
+
 namespace Cozmos
 {
 
@@ -58,8 +60,12 @@ namespace Cozmos
 	{
 		while (m_IsRunning)
 		{
+			float time = (float)glfwGetTime(); // TODO: Replace with Platform::GetTime()
+			Timestep timestep = time - m_LastFrameTime;
+			m_LastFrameTime = time;
+
 			for (Layer* layer : m_LayerStack)
-				layer->OnUpdate();
+				layer->OnUpdate(timestep);
 
 			m_ImGuiLayer->Begin();
 			for (Layer* layer : m_LayerStack)

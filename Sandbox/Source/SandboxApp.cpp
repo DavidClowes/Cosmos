@@ -124,25 +124,25 @@ public:
 		m_BlueShader.reset(new Cozmos::Shader(blueShadervertexSrc, blueShaderfragmentSrc));
 	}
 
-	void OnUpdate() override
+	void OnUpdate(Cozmos::Timestep timestep) override
 	{
 		if (Cozmos::Input::IsKeyPressed(COZ_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraSpeed;
+			m_CameraPosition.x -= m_CameraSpeed * timestep;
 
 		if (Cozmos::Input::IsKeyPressed(COZ_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraSpeed;
+			m_CameraPosition.x += m_CameraSpeed * timestep;
 
 		if (Cozmos::Input::IsKeyPressed(COZ_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraSpeed;
+			m_CameraPosition.y -= m_CameraSpeed * timestep;
 
 		if (Cozmos::Input::IsKeyPressed(COZ_KEY_UP))
-			m_CameraPosition.y += m_CameraSpeed;
+			m_CameraPosition.y += m_CameraSpeed * timestep;
 
 		if (Cozmos::Input::IsKeyPressed(COZ_KEY_A))
-			m_CameraRotation -= m_CameraRotationSpeed;
+			m_CameraRotation -= m_CameraRotationSpeed * timestep;
 
 		if (Cozmos::Input::IsKeyPressed(COZ_KEY_D))
-			m_CameraRotation += m_CameraRotationSpeed;
+			m_CameraRotation += m_CameraRotationSpeed * timestep;
 
 		Cozmos::RenderCommand::SetClearColor({ 0.1, 0.1, 0.1, 1 });
 		Cozmos::RenderCommand::Clear();

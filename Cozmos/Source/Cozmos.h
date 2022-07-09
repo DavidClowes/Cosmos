@@ -13,6 +13,18 @@
 
 #include "Cozmos/ImGui/ImGuiLayer.h"
 
+
+// ---------- Renderer ---------- //
+#include "Cozmos/Renderer/Renderer.h"
+#include "Cozmos/Renderer/RenderCommand.h"
+
+#include "Cozmos/Renderer/Buffer.h"
+#include "Cozmos/Renderer/Shader.h"
+#include "Cozmos/Renderer/VertexArray.h"
+
+#include "Cozmos/Renderer/Camera.h"
+// ----------------------------- //
+
 // -------- Entry Point -------- //
 #include "Cozmos/EntryPoint.h"
 // ----------------------------- //

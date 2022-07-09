@@ -13,6 +13,8 @@
 #include "Cozmos/Renderer/Buffer.h"
 #include "Cozmos/Renderer/VertexArray.h"
 
+#include "Cozmos/Renderer/Camera.h"
+
 namespace Cozmos
 
 {
@@ -47,6 +49,8 @@ namespace Cozmos
 
 		std::shared_ptr<Shader> m_BlueShader;
 		std::shared_ptr<VertexArray> m_SquareVA;
+
+		OrthographicCamera m_Camera;
 
 	private:
 		static Application* s_Instance;

@@ -2,11 +2,13 @@
 
 #include "imgui/imgui.h"
 
+#include <glm/gtc/matrix_transform.hpp>
+
 class ExampleLayer : public Cozmos::Layer
 {
 public:
 	ExampleLayer()
-		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
+		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f), m_SquarePosition(0.0f)
 	{
 		m_VertexArray.reset(Cozmos::VertexArray::Create());
 
@@ -131,19 +133,16 @@ public:
 	{
 		if (Cozmos::Input::IsKeyPressed(COZ_KEY_LEFT))
 			m_CameraPosition.x -= m_CameraSpeed * timestep;
-
 		if (Cozmos::Input::IsKeyPressed(COZ_KEY_RIGHT))
 			m_CameraPosition.x += m_CameraSpeed * timestep;
 
 		if (Cozmos::Input::IsKeyPressed(COZ_KEY_DOWN))
 			m_CameraPosition.y -= m_CameraSpeed * timestep;
-
 		if (Cozmos::Input::IsKeyPressed(COZ_KEY_UP))
 			m_CameraPosition.y += m_CameraSpeed * timestep;
 
 		if (Cozmos::Input::IsKeyPressed(COZ_KEY_A))
 			m_CameraRotation -= m_CameraRotationSpeed * timestep;
-
 		if (Cozmos::Input::IsKeyPressed(COZ_KEY_D))
 			m_CameraRotation += m_CameraRotationSpeed * timestep;
 
@@ -153,10 +152,21 @@ public:
 		m_Camera.SetPosition(m_CameraPosition);
 		m_Camera.SetRotation(m_CameraRotation);
 
+		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
+
 		Cozmos::Renderer::BeginScene(m_Camera);
 		{
-			Cozmos::Renderer::Submit(m_BlueShader, m_SquareVA);
-			Cozmos::Renderer::Submit(m_Shader, m_VertexArray);
+			for (int y = 0; y < 20; y++)
+			{
+				for (int i = 0; i < 5; i++)
+				{
+					glm::vec3 pos(i * 0.11f, y * 0.11f, 0.0f);
+					glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
+					Cozmos::Renderer::Submit(m_BlueShader, m_SquareVA, transform);
+				}
+			}
+			
+			//Cozmos::Renderer::Submit(m_Shader, m_VertexArray);
 		}
 		Cozmos::Renderer::EndScene();
 	}

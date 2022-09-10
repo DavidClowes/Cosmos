@@ -22,7 +22,7 @@ public:
 			0.0f, 0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		std::shared_ptr<Cozmos::VertexBuffer> vertexBuffer;
+		Cozmos::Ref<Cozmos::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(Cozmos::VertexBuffer::Create(vertices, sizeof(vertices)));
 		Cozmos::BufferLayout layout =
 		{
@@ -33,7 +33,7 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		std::shared_ptr<Cozmos::IndexBuffer> indexBuffer;
+		Cozmos::Ref<Cozmos::IndexBuffer> indexBuffer;
 		indexBuffer.reset(Cozmos::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -49,7 +49,7 @@ public:
 			-0.5f,  0.5f, 0.0f
 		};
 
-		std::shared_ptr<Cozmos::VertexBuffer> squareVB;
+		Cozmos::Ref<Cozmos::VertexBuffer> squareVB;
 		squareVB.reset(Cozmos::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 		squareVB->SetLayout({
 			{ Cozmos::ShaderDataType::Float3, "a_Position" }
@@ -57,7 +57,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		std::shared_ptr<Cozmos::IndexBuffer> squareIB;
+		Cozmos::Ref<Cozmos::IndexBuffer> squareIB;
 		squareIB.reset(Cozmos::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -198,11 +198,11 @@ public:
 
 private:
 
-	std::shared_ptr<Cozmos::Shader> m_Shader;
-	std::shared_ptr<Cozmos::VertexArray> m_VertexArray;
+	Cozmos::Ref<Cozmos::Shader> m_Shader;
+	Cozmos::Ref<Cozmos::VertexArray> m_VertexArray;
 
-	std::shared_ptr<Cozmos::Shader> m_FlatColorShader;
-	std::shared_ptr<Cozmos::VertexArray> m_SquareVA;
+	Cozmos::Ref<Cozmos::Shader> m_FlatColorShader;
+	Cozmos::Ref<Cozmos::VertexArray> m_SquareVA;
 
 	Cozmos::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;

@@ -22,6 +22,7 @@
 
 #include "Cozmos/Renderer/Buffer.h"
 #include "Cozmos/Renderer/Shader.h"
+#include "Cozmos/Renderer/Texture.h"
 #include "Cozmos/Renderer/VertexArray.h"
 
 #include "Cozmos/Renderer/Camera.h"

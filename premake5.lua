@@ -17,6 +17,7 @@ IncludeDir["GLFW"] = "Cozmos/vendor/GLFW/include"
 IncludeDir["Glad"] = "Cozmos/vendor/Glad/include"
 IncludeDir["ImGui"] = "Cozmos/vendor/imgui"
 IncludeDir["glm"] = "Cozmos/vendor/glm"
+IncludeDir["stb_image"] = "Cozmos/vendor/stb_image"
 
 group "Dependencies"
 	include "Cozmos/vendor/GLFW"
@@ -40,7 +41,11 @@ project "Cozmos"
 	files
 	{
 		"%{prj.name}/Source/**.h",
-		"%{prj.name}/Source/**.cpp"
+		"%{prj.name}/Source/**.cpp",
+		"%{prj.name}/vendor/stb_image/**.h",
+		"%{prj.name}/vendor/stb_image/**.cpp",
+		"%{prj.name}/vendor/glm/glm/**.hpp",
+		"%{prj.name}/vendor/glm/glm/**.inl"
 	}
 
 	defines
@@ -55,7 +60,8 @@ project "Cozmos"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
 	}
 
 	links

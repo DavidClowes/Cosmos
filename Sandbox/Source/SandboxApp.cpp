@@ -41,18 +41,19 @@ public:
 
 		m_SquareVA.reset(Cozmos::VertexArray::Create());
 
-		float squareVertices[3 * 4] =
+		float squareVertices[5 * 4] =
 		{
-		   -0.5f, -0.5f, 0.0f,
-			0.5f, -0.5f, 0.0f,
-			0.5f,  0.5f, 0.0f,
-			-0.5f,  0.5f, 0.0f
+		    -0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+			 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+			 0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
+		    -0.5f,  0.5f, 0.0f, 0.0f, 1.0f
 		};
 
 		Cozmos::Ref<Cozmos::VertexBuffer> squareVB;
 		squareVB.reset(Cozmos::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 		squareVB->SetLayout({
-			{ Cozmos::ShaderDataType::Float3, "a_Position" }
+			{ Cozmos::ShaderDataType::Float3, "a_Position" },
+			{ Cozmos::ShaderDataType::Float2, "a_TexCoord" }
 			});
 		m_SquareVA->AddVertexBuffer(squareVB);
 
@@ -132,6 +133,47 @@ public:
 		)";
 
 		m_FlatColorShader.reset(Cozmos::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+
+		std::string textureShaderVertexSrc = R"(
+			#version 330 core
+		
+			layout(location = 0) in vec3 a_Position;
+			layout(location = 1) in vec2 a_TexCoord;
+
+			uniform mat4 u_ViewProjection;
+			uniform mat4 u_ModelTransform;
+
+			out vec2 v_TexCoord;
+
+			void main()
+			{
+				v_TexCoord = a_TexCoord;
+				gl_Position = u_ViewProjection * u_ModelTransform * vec4(a_Position, 1.0);
+			}
+		)";
+
+		std::string textureShaderFragmentSrc = R"(
+			#version 330 core
+		
+			layout(location = 0) out vec4 color;
+
+			in vec2 v_TexCoord;
+
+			uniform sampler2D u_Texture;
+
+			void main()
+			{
+				color = texture(u_Texture, v_TexCoord);
+			}
+		)";
+
+		m_TextureShader.reset(Cozmos::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
+
+		m_Texture = Cozmos::Texture2D::Create("Assets/Textures/Checkerboard.png");
+
+		std::dynamic_pointer_cast<Cozmos::OpenGLShader>(m_TextureShader)->Bind();
+		std::dynamic_pointer_cast<Cozmos::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+
 	}
 
 	void OnUpdate(Cozmos::Timestep timestep) override
@@ -177,8 +219,14 @@ public:
 					Cozmos::Renderer::Submit(m_FlatColorShader, m_SquareVA, transform);
 				}
 			}
-			
-			Cozmos::Renderer::Submit(m_Shader, m_VertexArray);
+
+			m_Texture->Bind();
+			Cozmos::Renderer::Submit(m_TextureShader, m_SquareVA,
+				glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+
+			// 
+			// Triangle
+			// Cozmos::Renderer::Submit(m_Shader, m_VertexArray);
 		}
 		Cozmos::Renderer::EndScene();
 	}
@@ -201,8 +249,10 @@ private:
 	Cozmos::Ref<Cozmos::Shader> m_Shader;
 	Cozmos::Ref<Cozmos::VertexArray> m_VertexArray;
 
-	Cozmos::Ref<Cozmos::Shader> m_FlatColorShader;
+	Cozmos::Ref<Cozmos::Shader> m_FlatColorShader, m_TextureShader;
 	Cozmos::Ref<Cozmos::VertexArray> m_SquareVA;
+
+	Cozmos::Ref<Cozmos::Texture2D> m_Texture;
 
 	Cozmos::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;

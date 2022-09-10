@@ -84,6 +84,7 @@
     <ClInclude Include="Source\Platform\OpenGL\OpenGLRendererAPI.h" />
     <ClInclude Include="Source\Cozmos\Renderer\Camera.h" />
     <ClInclude Include="Source\Cozmos\Core\Timestep.h" />
+    <ClInclude Include="Source\Platform\OpenGL\OpenGLShader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Cozmos\Application.cpp">
@@ -123,5 +124,6 @@
     <ClCompile Include="Source\Platform\OpenGL\OpenGLRendererAPI.cpp" />
     <ClCompile Include="Source\Cozmos\Renderer\Camera.cpp" />
     <ClCompile Include="Source\Cozmos\Core\Timestep.cpp" />
+    <ClCompile Include="Source\Platform\OpenGL\OpenGLShader.cpp" />
   </ItemGroup>
 </Project>

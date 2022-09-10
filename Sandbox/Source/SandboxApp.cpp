@@ -1,14 +1,17 @@
 #include "Cozmos.h"
 
+#include "Platform/OpenGL/OpenGLShader.h"
+
 #include "imgui/imgui.h"
 
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 class ExampleLayer : public Cozmos::Layer
 {
 public:
 	ExampleLayer()
-		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f), m_SquarePosition(0.0f)
+		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
 	{
 		m_VertexArray.reset(Cozmos::VertexArray::Create());
 
@@ -93,9 +96,9 @@ public:
 			}
 		)";
 
-		m_Shader.reset(new Cozmos::Shader(vertexSrc, fragmentSrc));
+		m_Shader.reset(Cozmos::Shader::Create(vertexSrc, fragmentSrc));
 
-		std::string blueShadervertexSrc = R"(
+		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
 		
 			layout(location = 0) in vec3 a_Position;
@@ -113,20 +116,22 @@ public:
 			}
 		)";
 
-		std::string blueShaderfragmentSrc = R"(
+		std::string flatColorShaderFragmentSrc = R"(
 			#version 330 core
 		
 			layout(location = 0) out vec4 color;
 
 			in vec3 v_Position;
 
+			uniform vec3 u_Color;
+
 			void main()
 			{
-				color = vec4(0.2, 0.3, 0.8, 1.0);
+				color = vec4(u_Color, 1.0);
 			}
 		)";
 
-		m_BlueShader.reset(new Cozmos::Shader(blueShadervertexSrc, blueShaderfragmentSrc));
+		m_FlatColorShader.reset(Cozmos::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
 	}
 
 	void OnUpdate(Cozmos::Timestep timestep) override
@@ -152,27 +157,39 @@ public:
 		m_Camera.SetPosition(m_CameraPosition);
 		m_Camera.SetRotation(m_CameraRotation);
 
-		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
 		Cozmos::Renderer::BeginScene(m_Camera);
 		{
+			glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
+
+			glm::vec4 redColor(0.8f, 0.2f, 0.3f, 1.0f);
+			glm::vec4 blueColor(0.2f, 0.3f, 0.8f, 1.0f);
+
+			std::dynamic_pointer_cast<Cozmos::OpenGLShader>(m_FlatColorShader)->Bind();
+			std::dynamic_pointer_cast<Cozmos::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
+
 			for (int y = 0; y < 20; y++)
 			{
-				for (int i = 0; i < 5; i++)
+				for (int x = 0; x < 5; x++)
 				{
-					glm::vec3 pos(i * 0.11f, y * 0.11f, 0.0f);
+					glm::vec3 pos(x * 0.11f, y * 0.11f, 0.0f);
 					glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
-					Cozmos::Renderer::Submit(m_BlueShader, m_SquareVA, transform);
+					Cozmos::Renderer::Submit(m_FlatColorShader, m_SquareVA, transform);
 				}
 			}
 			
-			//Cozmos::Renderer::Submit(m_Shader, m_VertexArray);
+			Cozmos::Renderer::Submit(m_Shader, m_VertexArray);
 		}
 		Cozmos::Renderer::EndScene();
 	}
 
 	virtual void OnImGuiRender() override
 	{
+		ImGui::Begin("Settings");
+		{
+			ImGui::ColorEdit3("Square Color", glm::value_ptr(m_SquareColor));
+		}
+		ImGui::End();
 	}
 
 	void OnEvent(Cozmos::Event& event) override
@@ -184,7 +201,7 @@ private:
 	std::shared_ptr<Cozmos::Shader> m_Shader;
 	std::shared_ptr<Cozmos::VertexArray> m_VertexArray;
 
-	std::shared_ptr<Cozmos::Shader> m_BlueShader;
+	std::shared_ptr<Cozmos::Shader> m_FlatColorShader;
 	std::shared_ptr<Cozmos::VertexArray> m_SquareVA;
 
 	Cozmos::OrthographicCamera m_Camera;
@@ -193,6 +210,8 @@ private:
 
 	float m_CameraRotation = 0.0f;
 	float m_CameraRotationSpeed = 2.0f;
+
+	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };
 
 class Sandbox : public Cozmos::Application

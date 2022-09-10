@@ -1,6 +1,8 @@
 #include "cozpch.h"
 #include "Renderer.h"
 
+#include "Platform/OpenGL/OpenGLShader.h"
+
 namespace Cozmos
 {
 	Renderer::SceneData* Renderer::m_SceneData = new Renderer::SceneData;
@@ -15,8 +17,8 @@ namespace Cozmos
 	void Renderer::Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<VertexArray>& vertexArray, const glm::mat4& modelTransform)
 	{
 		shader->Bind();
-		shader->UploadUniformMat4("u_ViewProjection", m_SceneData->ViewProjectionMatrix);
-		shader->UploadUniformMat4("u_ModelTransform", modelTransform);
+		std::dynamic_pointer_cast<OpenGLShader>(shader)->UploadUniformMat4("u_ViewProjection", m_SceneData->ViewProjectionMatrix);
+		std::dynamic_pointer_cast<OpenGLShader>(shader)->UploadUniformMat4("u_ModelTransform", modelTransform);
 
 		vertexArray->Bind();
 		RenderCommand::DrawIndexed(vertexArray);

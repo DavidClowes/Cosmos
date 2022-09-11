@@ -97,7 +97,7 @@ public:
 			}
 		)";
 
-		m_Shader.reset(Cozmos::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader = Cozmos::Shader::Create("VertexPosColor", vertexSrc, fragmentSrc);
 
 		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
@@ -132,15 +132,15 @@ public:
 			}
 		)";
 
-		m_FlatColorShader.reset(Cozmos::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader = Cozmos::Shader::Create("FlatColor", flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-		m_TextureShader.reset(Cozmos::Shader::Create("Assets/Shaders/Texture.glsl"));
+		auto textureShader = m_ShaderLibrary.Load("Assets/Shaders/Texture.glsl");
 
 		m_Texture = Cozmos::Texture2D::Create("Assets/Textures/Checkerboard.png");
 		m_AlphaTexture = Cozmos::Texture2D::Create("Assets/Textures/XD.png");
 
-		std::dynamic_pointer_cast<Cozmos::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<Cozmos::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<Cozmos::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<Cozmos::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 
 	}
 
@@ -188,11 +188,13 @@ public:
 				}
 			}
 
+			auto textureShader = m_ShaderLibrary.Get("Texture");
+
 			m_Texture->Bind();
-			Cozmos::Renderer::Submit(m_TextureShader, m_SquareVA,
+			Cozmos::Renderer::Submit(textureShader, m_SquareVA,
 				glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 			m_AlphaTexture->Bind();
-			Cozmos::Renderer::Submit(m_TextureShader, m_SquareVA,
+			Cozmos::Renderer::Submit(textureShader, m_SquareVA,
 				glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 			// 
@@ -216,11 +218,11 @@ public:
 	}
 
 private:
-
+	Cozmos::ShaderLibrary m_ShaderLibrary;
 	Cozmos::Ref<Cozmos::Shader> m_Shader;
 	Cozmos::Ref<Cozmos::VertexArray> m_VertexArray;
 
-	Cozmos::Ref<Cozmos::Shader> m_FlatColorShader, m_TextureShader;
+	Cozmos::Ref<Cozmos::Shader> m_FlatColorShader;
 	Cozmos::Ref<Cozmos::VertexArray> m_SquareVA;
 
 	Cozmos::Ref<Cozmos::Texture2D> m_Texture, m_AlphaTexture;

@@ -170,6 +170,7 @@ public:
 		m_TextureShader.reset(Cozmos::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
 
 		m_Texture = Cozmos::Texture2D::Create("Assets/Textures/Checkerboard.png");
+		m_AlphaTexture = Cozmos::Texture2D::Create("Assets/Textures/XD.png");
 
 		std::dynamic_pointer_cast<Cozmos::OpenGLShader>(m_TextureShader)->Bind();
 		std::dynamic_pointer_cast<Cozmos::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
@@ -223,6 +224,9 @@ public:
 			m_Texture->Bind();
 			Cozmos::Renderer::Submit(m_TextureShader, m_SquareVA,
 				glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+			m_AlphaTexture->Bind();
+			Cozmos::Renderer::Submit(m_TextureShader, m_SquareVA,
+				glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 			// 
 			// Triangle
@@ -252,7 +256,7 @@ private:
 	Cozmos::Ref<Cozmos::Shader> m_FlatColorShader, m_TextureShader;
 	Cozmos::Ref<Cozmos::VertexArray> m_SquareVA;
 
-	Cozmos::Ref<Cozmos::Texture2D> m_Texture;
+	Cozmos::Ref<Cozmos::Texture2D> m_Texture, m_AlphaTexture;
 
 	Cozmos::OrthographicCamera m_Camera;
 	glm::vec3 m_CameraPosition;

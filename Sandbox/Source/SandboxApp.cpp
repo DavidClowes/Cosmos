@@ -11,7 +11,7 @@ class ExampleLayer : public Cozmos::Layer
 {
 public:
 	ExampleLayer()
-		: Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f)
+		: Layer("Example"), m_CameraController(16.0f / 9.0f)
 	{
 		m_VertexArray.reset(Cozmos::VertexArray::Create());
 
@@ -146,29 +146,14 @@ public:
 
 	void OnUpdate(Cozmos::Timestep timestep) override
 	{
-		if (Cozmos::Input::IsKeyPressed(COZ_KEY_LEFT))
-			m_CameraPosition.x -= m_CameraSpeed * timestep;
-		if (Cozmos::Input::IsKeyPressed(COZ_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraSpeed * timestep;
+		// Update
+		m_CameraController.OnUpdate(timestep);
 
-		if (Cozmos::Input::IsKeyPressed(COZ_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraSpeed * timestep;
-		if (Cozmos::Input::IsKeyPressed(COZ_KEY_UP))
-			m_CameraPosition.y += m_CameraSpeed * timestep;
-
-		if (Cozmos::Input::IsKeyPressed(COZ_KEY_A))
-			m_CameraRotation -= m_CameraRotationSpeed * timestep;
-		if (Cozmos::Input::IsKeyPressed(COZ_KEY_D))
-			m_CameraRotation += m_CameraRotationSpeed * timestep;
-
+		// Render
 		Cozmos::RenderCommand::SetClearColor({ 0.1, 0.1, 0.1, 1 });
 		Cozmos::RenderCommand::Clear();
 
-		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(m_CameraRotation);
-
-
-		Cozmos::Renderer::BeginScene(m_Camera);
+		Cozmos::Renderer::BeginScene(m_CameraController.GetCamera());
 		{
 			glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
@@ -213,8 +198,9 @@ public:
 		ImGui::End();
 	}
 
-	void OnEvent(Cozmos::Event& event) override
+	void OnEvent(Cozmos::Event& e) override
 	{
+		m_CameraController.OnEvent(e);
 	}
 
 private:
@@ -227,12 +213,7 @@ private:
 
 	Cozmos::Ref<Cozmos::Texture2D> m_Texture, m_AlphaTexture;
 
-	Cozmos::OrthographicCamera m_Camera;
-	glm::vec3 m_CameraPosition;
-	float m_CameraSpeed = 0.1f;
-
-	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 2.0f;
+	Cozmos::OrthographicCameraController m_CameraController;
 
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 };

@@ -12,6 +12,7 @@
 #include "Cozmos/Input.h"
 #include "Cozmos/KeyCodes.h"
 #include "Cozmos/MouseButtonCodes.h"
+#include "Cozmos/OrthographicCameraController.h"
 
 #include "Cozmos/ImGui/ImGuiLayer.h"
 

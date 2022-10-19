@@ -140,6 +140,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Cozmos\OrthographicCameraController.h" />
     <ClInclude Include="Source\Cozmos.h" />
     <ClInclude Include="Source\Cozmos\Application.h" />
     <ClInclude Include="Source\Cozmos\Core.h" />
@@ -593,6 +594,7 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Cozmos\OrthographicCameraController.cpp" />
     <ClCompile Include="Source\Cozmos\Application.cpp" />
     <ClCompile Include="Source\Cozmos\Core\Timestep.cpp" />
     <ClCompile Include="Source\Cozmos\ImGui\ImGuiBuild.cpp" />

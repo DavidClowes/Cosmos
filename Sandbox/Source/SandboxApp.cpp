@@ -201,6 +201,15 @@ public:
 	void OnEvent(Cozmos::Event& e) override
 	{
 		m_CameraController.OnEvent(e);
+
+		if (e.GetEventType() == Cozmos::EventType::WindowResize)
+		{
+			auto& re = (Cozmos::WindowResizeEvent&)e;
+
+			//float zoom = (float)re.GetWidth() / 1280.0f;
+
+			//m_CameraController.SetZoomLevel(zoom);
+		}
 	}
 
 private:

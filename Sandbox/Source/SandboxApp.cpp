@@ -1,4 +1,5 @@
-#include "Cozmos.h"
+#include <Cozmos.h>
+#include <Cozmos/Core/EntryPoint.h>
 
 #include "Platform/OpenGL/OpenGLShader.h"
 
@@ -7,13 +8,15 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "Sandbox2D.h"
+
 class ExampleLayer : public Cozmos::Layer
 {
 public:
 	ExampleLayer()
 		: Layer("Example"), m_CameraController(16.0f / 9.0f)
 	{
-		m_VertexArray.reset(Cozmos::VertexArray::Create());
+		m_VertexArray  = Cozmos::VertexArray::Create();
 
 		float vertices[3 * 7] =
 		{
@@ -39,7 +42,7 @@ public:
 
 		// Square //
 
-		m_SquareVA.reset(Cozmos::VertexArray::Create());
+		m_SquareVA = Cozmos::VertexArray::Create();
 
 		float squareVertices[5 * 4] =
 		{
@@ -141,7 +144,6 @@ public:
 
 		std::dynamic_pointer_cast<Cozmos::OpenGLShader>(textureShader)->Bind();
 		std::dynamic_pointer_cast<Cozmos::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
-
 	}
 
 	void OnUpdate(Cozmos::Timestep timestep) override
@@ -232,7 +234,8 @@ class Sandbox : public Cozmos::Application
 public:
 	Sandbox()
 	{
-		PushLayer(new ExampleLayer());
+		//PushLayer(new ExampleLayer());
+		PushLayer(new Sandbox2D());
 	}
 
 	~Sandbox()

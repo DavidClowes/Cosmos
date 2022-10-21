@@ -28,7 +28,3 @@
 
 #include "Cozmos/Renderer/Camera.h"
 // ----------------------------- //
-
-// -------- Entry Point -------- //
-#include "Cozmos/Core/EntryPoint.h"
-// ----------------------------- //

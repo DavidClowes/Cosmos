@@ -1,7 +1,7 @@
 #include "cozpch.h"
 #include "Application.h"
 
-#include "Cozmos/Log.h"
+#include "Cozmos/Core/Log.h"
 
 #include "Cozmos/Renderer/Renderer.h"
 

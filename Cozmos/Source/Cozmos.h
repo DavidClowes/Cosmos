@@ -2,16 +2,16 @@
 
 // For use by Cozmos applications
 
-#include "Cozmos/Application.h"
+#include "Cozmos/Core/Application.h"
 
-#include "Cozmos/Layer.h"
-#include "Cozmos/Log.h"
+#include "Cozmos/Core/Layer.h"
+#include "Cozmos/Core/Log.h"
 
 #include "Cozmos/Core/Timestep.h"
 
-#include "Cozmos/Input.h"
-#include "Cozmos/KeyCodes.h"
-#include "Cozmos/MouseButtonCodes.h"
+#include "Cozmos/Core/Input.h"
+#include "Cozmos/Core/KeyCodes.h"
+#include "Cozmos/Core/MouseButtonCodes.h"
 #include "Cozmos/OrthographicCameraController.h"
 
 #include "Cozmos/ImGui/ImGuiLayer.h"
@@ -30,5 +30,5 @@
 // ----------------------------- //
 
 // -------- Entry Point -------- //
-#include "Cozmos/EntryPoint.h"
+#include "Cozmos/Core/EntryPoint.h"
 // ----------------------------- //

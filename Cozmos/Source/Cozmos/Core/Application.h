@@ -4,7 +4,7 @@
 
 #include "Window.h"
 #include "LayerStack.h"
-#include "Events/Event.h"
+#include "Cozmos/Events/Event.h"
 #include "Cozmos/Events/ApplicationEvent.h"
 
 #include "Cozmos/Core/Timestep.h"

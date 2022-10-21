@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Cozmos/Core.h"
+#include "Cozmos/Core/Core.h"
 #include "Cozmos/Core/Timestep.h"
 #include "Cozmos/Events/Event.h"
 

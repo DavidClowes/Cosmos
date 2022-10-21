@@ -140,23 +140,24 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Cozmos\OrthographicCameraController.h" />
     <ClInclude Include="Source\Cozmos.h" />
-    <ClInclude Include="Source\Cozmos\Application.h" />
-    <ClInclude Include="Source\Cozmos\Core.h" />
+    <ClInclude Include="Source\Cozmos\Core\Application.h" />
+    <ClInclude Include="Source\Cozmos\Core\Core.h" />
+    <ClInclude Include="Source\Cozmos\Core\EntryPoint.h" />
+    <ClInclude Include="Source\Cozmos\Core\Input.h" />
+    <ClInclude Include="Source\Cozmos\Core\KeyCodes.h" />
+    <ClInclude Include="Source\Cozmos\Core\Layer.h" />
+    <ClInclude Include="Source\Cozmos\Core\LayerStack.h" />
+    <ClInclude Include="Source\Cozmos\Core\Log.h" />
+    <ClInclude Include="Source\Cozmos\Core\MouseButtonCodes.h" />
     <ClInclude Include="Source\Cozmos\Core\Timestep.h" />
-    <ClInclude Include="Source\Cozmos\EntryPoint.h" />
+    <ClInclude Include="Source\Cozmos\Core\Window.h" />
     <ClInclude Include="Source\Cozmos\Events\ApplicationEvent.h" />
     <ClInclude Include="Source\Cozmos\Events\Event.h" />
     <ClInclude Include="Source\Cozmos\Events\KeyEvent.h" />
     <ClInclude Include="Source\Cozmos\Events\MouseEvent.h" />
     <ClInclude Include="Source\Cozmos\ImGui\ImGuiLayer.h" />
-    <ClInclude Include="Source\Cozmos\Input.h" />
-    <ClInclude Include="Source\Cozmos\KeyCodes.h" />
-    <ClInclude Include="Source\Cozmos\Layer.h" />
-    <ClInclude Include="Source\Cozmos\LayerStack.h" />
-    <ClInclude Include="Source\Cozmos\Log.h" />
-    <ClInclude Include="Source\Cozmos\MouseButtonCodes.h" />
+    <ClInclude Include="Source\Cozmos\OrthographicCameraController.h" />
     <ClInclude Include="Source\Cozmos\Renderer\Buffer.h" />
     <ClInclude Include="Source\Cozmos\Renderer\Camera.h" />
     <ClInclude Include="Source\Cozmos\Renderer\GraphicsContext.h" />
@@ -166,7 +167,6 @@
     <ClInclude Include="Source\Cozmos\Renderer\Shader.h" />
     <ClInclude Include="Source\Cozmos\Renderer\Texture.h" />
     <ClInclude Include="Source\Cozmos\Renderer\VertexArray.h" />
-    <ClInclude Include="Source\Cozmos\Window.h" />
     <ClInclude Include="Source\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="Source\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="Source\Platform\OpenGL\OpenGLRendererAPI.h" />
@@ -594,14 +594,14 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\Cozmos\OrthographicCameraController.cpp" />
-    <ClCompile Include="Source\Cozmos\Application.cpp" />
+    <ClCompile Include="Source\Cozmos\Core\Application.cpp" />
+    <ClCompile Include="Source\Cozmos\Core\Layer.cpp" />
+    <ClCompile Include="Source\Cozmos\Core\LayerStack.cpp" />
+    <ClCompile Include="Source\Cozmos\Core\Log.cpp" />
     <ClCompile Include="Source\Cozmos\Core\Timestep.cpp" />
     <ClCompile Include="Source\Cozmos\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="Source\Cozmos\ImGui\ImGuiLayer.cpp" />
-    <ClCompile Include="Source\Cozmos\Layer.cpp" />
-    <ClCompile Include="Source\Cozmos\LayerStack.cpp" />
-    <ClCompile Include="Source\Cozmos\Log.cpp" />
+    <ClCompile Include="Source\Cozmos\OrthographicCameraController.cpp" />
     <ClCompile Include="Source\Cozmos\Renderer\Buffer.cpp" />
     <ClCompile Include="Source\Cozmos\Renderer\Camera.cpp" />
     <ClCompile Include="Source\Cozmos\Renderer\RenderCommand.cpp" />

@@ -2,7 +2,7 @@
 
 #include "cozpch.h"
 
-#include "Cozmos/Core.h"
+#include "Cozmos/Core/Core.h"
 #include "Cozmos/Events/Event.h"
 
 namespace Cozmos

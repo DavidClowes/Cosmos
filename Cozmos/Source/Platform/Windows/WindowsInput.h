@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Cozmos/Input.h"
+#include "Cozmos/Core/Input.h"
 
 namespace Cozmos
 {

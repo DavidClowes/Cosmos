@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Cozmos/Window.h"
+#include "Cozmos/Core/Window.h"
 #include "Cozmos/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>

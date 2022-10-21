@@ -1,7 +1,7 @@
 #include "cozpch.h"
 #include "WindowsInput.h"
 
-#include "Cozmos/Application.h"
+#include "Cozmos/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace Cozmos

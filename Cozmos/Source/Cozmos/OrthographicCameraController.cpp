@@ -1,8 +1,8 @@
 #include "cozpch.h"
 #include "OrthographicCameraController.h"
 
-#include "Cozmos/Input.h"
-#include "Cozmos/KeyCodes.h"
+#include "Cozmos/Core/Input.h"
+#include "Cozmos/Core/KeyCodes.h"
 
 namespace Cozmos
 {

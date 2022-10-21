@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "Cozmos/Core.h"
+#include "Cozmos/Core/Core.h"
 
 namespace Cozmos
 {

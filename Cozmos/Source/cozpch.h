@@ -13,7 +13,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "Cozmos/Log.h"
+#include "Cozmos/Core/Log.h"
 
 #ifdef COZ_PLATFORM_WINDOWS
 	#include <Windows.h>

@@ -140,6 +140,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Cozmos\Renderer\Renderer2D.h" />
     <ClInclude Include="Source\Cozmos.h" />
     <ClInclude Include="Source\Cozmos\Core\Application.h" />
     <ClInclude Include="Source\Cozmos\Core\Core.h" />
@@ -594,6 +595,7 @@
     <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Cozmos\Renderer\Renderer2D.cpp" />
     <ClCompile Include="Source\Cozmos\Core\Application.cpp" />
     <ClCompile Include="Source\Cozmos\Core\Layer.cpp" />
     <ClCompile Include="Source\Cozmos\Core\LayerStack.cpp" />

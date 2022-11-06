@@ -19,6 +19,7 @@
 
 // ---------- Renderer ---------- //
 #include "Cozmos/Renderer/Renderer.h"
+#include "Cozmos/Renderer/Renderer2D.h"
 #include "Cozmos/Renderer/RenderCommand.h"
 
 #include "Cozmos/Renderer/Buffer.h"

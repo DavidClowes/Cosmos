@@ -1390,6 +1390,7 @@
     <ClInclude Include="Source\Cozmos\Core\LayerStack.h" />
     <ClInclude Include="Source\Cozmos\Core\Log.h" />
     <ClInclude Include="Source\Cozmos\Core\Window.h" />
+    <ClInclude Include="Source\Cozmos\Renderer\Renderer2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Cozmos\Core\Timestep.cpp">
@@ -1462,5 +1463,6 @@
     <ClCompile Include="Source\Cozmos\Core\Layer.cpp" />
     <ClCompile Include="Source\Cozmos\Core\LayerStack.cpp" />
     <ClCompile Include="Source\Cozmos\Core\Log.cpp" />
+    <ClCompile Include="Source\Cozmos\Renderer\Renderer2D.cpp" />
   </ItemGroup>
 </Project>

@@ -22,6 +22,8 @@ private:
 	Cozmos::Ref<Cozmos::VertexArray> m_SquareVA;
 	Cozmos::Ref<Cozmos::Shader> m_FlatColorShader;
 
+	Cozmos::Ref<Cozmos::Texture2D> m_CheckerboardTexture;
+
 	glm::vec4 m_SquareColor = { 0.2f, 0.3f, 0.8f, 1.0f };
 };
 
